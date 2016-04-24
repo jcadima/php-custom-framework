@@ -9,4 +9,4 @@ class Home extends Controller{
 		$this->returnView($viewmodel->Index(), true);
 	}
 
-}
+} 

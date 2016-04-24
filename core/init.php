@@ -6,8 +6,7 @@ session_start();
 require_once 'config/config.php' ;
 
 
-
-function autoload_class_multiple_directory($class) {
+function multiple_directory_autoload($class) {
     # List all the class directories in the array.
     $array_paths = array(
         'classes/', 
@@ -25,4 +24,4 @@ function autoload_class_multiple_directory($class) {
     }
 }
 
-spl_autoload_register('autoload_class_multiple_directory');
+spl_autoload_register('multiple_directory_autoload');

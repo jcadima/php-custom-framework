@@ -13,7 +13,7 @@ class Posts extends Controller{
 		// $data['posts'] = $viewmodel->Index2() ;
 	    $this->returnView($data, true);
 	}
-
+   
 
 /*====================================================
 	ADD

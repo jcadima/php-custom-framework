@@ -58,7 +58,7 @@ abstract class Model{
 
 
 /*====================================================
-	LAST INSERT ID
+	LAST INSERT ID (last insert was successful)
 ====================================================*/
 	public function lastInsertId(){
 		return $this->dbh->lastInsertId();

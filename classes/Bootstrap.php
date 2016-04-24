@@ -8,7 +8,7 @@ class Bootstrap{
 	// $urlvalues are coming from $_GET,  
 	// the .htaccess files is rewriting the $_GET url as:
 	// index.php?controller=$1&action=$2&id=$3
-	// which can be accessed as: $urlvalues['controller'] , $urlvalues['action'] ... etc
+	// which can be accessed as: $urlvalues['controller'] , $urlvalues['action']
 	public function __construct($urlvalues){
 		$this->urlvalues = $urlvalues;
 		// defaults to 'home' controller if not specified

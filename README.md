@@ -22,6 +22,7 @@ If using IIS the controler/action will not work since this framework uses .htacc
 ```php
  $data['title'] = 'My website';
  $data['shares'] = $viewmodel->getShares() ;
+ $this->returnView($data, true);
 ```
 
 

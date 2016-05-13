@@ -7,7 +7,7 @@ class Users extends Controller{
 ====================================================*/
 	protected function register() {
 		$viewmodel = new User_Model();
-		$this->returnView($viewmodel->register(), true);
+		$this->view->output($viewmodel->register(), true);
 	}
 
 
@@ -44,7 +44,7 @@ class Users extends Controller{
 		}
 		else {
 			// login index ;
-			$this->returnView($viewmodel->index(), true);
+			$this->view->output($viewmodel->index(), true ) ;
 		}
 
 

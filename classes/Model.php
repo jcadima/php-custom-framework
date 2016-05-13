@@ -48,6 +48,15 @@ abstract class Model{
 
 
 /*====================================================
+	SINGLE
+====================================================*/
+	public function single(){
+		$this->execute();
+		// FETCH_ASSOC = associative array
+		return $this->stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+/*====================================================
 	RESULT SET
 ====================================================*/
 	public function resultSet(){
@@ -65,12 +74,5 @@ abstract class Model{
 	}
 
 
-/*====================================================
-	SINGLE
-====================================================*/
-	public function single(){
-		$this->execute();
-		// FETCH_ASSOC = associative array
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
-	}
+
 }

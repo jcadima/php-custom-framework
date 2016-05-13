@@ -1,11 +1,12 @@
 <?php
 require 'core/init.php' ;
 
-// see the url values
+// Testing
 echo '<pre>';
 print_r($_GET) ;
 echo  '</pre>';
 
+// get  url values
 $get = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 
 $bootstrap = new Bootstrap($get);

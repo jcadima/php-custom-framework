@@ -3,10 +3,14 @@
 abstract class Controller{
 	protected $urlvalues;
 	protected $action;
+	protected $view;
 
 	public function __construct($action, $urlvalues){
 		$this->action = $action;  // index
 		$this->urlvalues = $urlvalues;
+
+		//establish the view object
+		$this->view = new View(get_class($this), $action);
 	}
 
 /*====================================================
@@ -17,19 +21,5 @@ abstract class Controller{
 		return $this->{$this->action}();
 	}
  
-
-/*====================================================
-	RETURN VIEW
-====================================================*/
-	protected function returnView($viewmodel, $fullview) {
-	
-		$view = 'views/'. get_class($this). '/' . $this->action. '.php';
-		if($fullview) {
-			require('views/main.php');
-		} 
-		else {
-			require($view);
-		}
-	}
 }
 

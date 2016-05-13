@@ -2,6 +2,9 @@
 
 class Post_Model extends Model{
 
+/*====================================================
+	GET ALL POSTS
+====================================================*/
 	public function Index(){
 	//	Descending Posts
 		$this->query('SELECT * FROM posts ORDER BY create_date DESC');
@@ -9,12 +12,6 @@ class Post_Model extends Model{
 		return $rows;
 	}
 
-	//  Ascending Posts
-	public function Index2(){
-		$this->query('SELECT * FROM posts ORDER BY create_date ASC');
-		$rows = $this->resultSet();
-		return $rows;
-	}
 
 /*====================================================
 	ADD
@@ -43,4 +40,17 @@ class Post_Model extends Model{
 		}
 		return;
 	}
+
+/*====================================================
+	GET SINGLE POST
+====================================================*/
+	public function getPostById($id){
+		
+		$this->query('SELECT * FROM posts WHERE id=:id');
+		$this->bind(':id', $id ) ;
+		$row = $this->single();
+		return $row;
+	}
+
+
 }

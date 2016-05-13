@@ -3,7 +3,7 @@
 This is a PHP micro framework for web development, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments
 
 # REQUIREMENTS
-- PHP 5.2.x > with PDO
+- PHP 5.4.x > with PDO
 
 
 ### Installation
@@ -20,13 +20,52 @@ If using IIS the controler/action will not work since this framework uses .htacc
 - If you want to call only a specific part of the view without using the main template , you can do so by just passing a boolean of false as the second argument 
 - You are able to pass an array with as many values as you like , and can also return objects from the model. i.e: 
 ```php
- $data['title'] = 'My website';
- $data['shares'] = $viewmodel->getShares() ;
- $this->returnView($data, true);
+$data = [] ;
+$postid = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+$viewmodel = new Post_Model();
+$data = $viewmodel->getPostById($postid['id'] );
+$data['title'] = 'My website';
+// pass this $data array to the view
+$this->view->output($data, true ) ;
 ```
 
 
 
 For a more detailed description visit my
 [website](http://juancadima.com/creating-custom-php-mvc-framework-part-1/)
+
+
+### Database Tables Description
+Posts:
+```mysql
++-------------+--------------+------+-----+-------------------+----------------+
+| Field       | Type         | Null | Key | Default           | Extra          |
++-------------+--------------+------+-----+-------------------+----------------+
+| id          | int(11)      | NO   | PRI | NULL              | auto_increment |
+| user_id     | int(11)      | NO   |     | NULL              |                |
+| title       | varchar(255) | NO   |     | NULL              |                |
+| body        | text         | NO   |     | NULL              |                |
+| create_date | datetime     | NO   |     | CURRENT_TIMESTAMP |                |
++-------------+--------------+------+-----+-------------------+----------------+
+```
+
+Users:
+```mysql
++---------------+--------------+------+-----+-------------------+----------------+
+| Field         | Type         | Null | Key | Default           | Extra          |
++---------------+--------------+------+-----+-------------------+----------------+
+| id            | int(11)      | NO   | PRI | NULL              | auto_increment |
+| name          | varchar(255) | NO   |     | NULL              |                |
+| email         | varchar(255) | NO   |     | NULL              |                |
+| password      | varchar(255) | NO   |     | NULL              |                |
+| register_date | datetime     | NO   |     | CURRENT_TIMESTAMP |                |
++---------------+--------------+------+-----+-------------------+----------------+
+```
+
+
+
+
+
+
+
 

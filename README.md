@@ -1,6 +1,7 @@
 # PHP MICROFRAMEWORK: README
 
-This is a PHP micro framework for web development, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments
+This is a PHP micro framework for web development, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments.
+A simple blog and user registration is integrated into this custom framework.
 
 # REQUIREMENTS
 - PHP 5.4.x > with PDO

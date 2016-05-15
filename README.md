@@ -1,4 +1,6 @@
-# PHP MICROFRAMEWORK: README
+# PHP MICROFRAMEWORK: ARMADILLO
+
+![alt tag](http://juancadima.com/wp-content/uploads/armadillo.jpg)
 
 This is a PHP micro framework for web development, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments.
 A simple blog and user registration is integrated into this custom framework.

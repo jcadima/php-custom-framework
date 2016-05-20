@@ -7,6 +7,14 @@
 
 </div>
 
+<h5>GET Array:</h5>
+<?php
+echo '<pre>';
+print_r($_GET) ;
+echo  '</pre>';
+?>
+
+
 <h5>Print values from $data array:</h5><br>
 <?php
 echo $viewData['hometitle']  . '<br>' ;

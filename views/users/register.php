@@ -1,3 +1,9 @@
+<h5>GET Array:</h5>
+<?php
+echo '<pre>';
+print_r($_GET) ;
+echo  '</pre>';
+?>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Register User</h3>

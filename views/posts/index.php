@@ -1,3 +1,10 @@
+<h5>GET Array:</h5>
+<?php
+echo '<pre>';
+print_r($_GET) ;
+echo  '</pre>';
+?>
+
 <div>
 	
 	<?php   // do not display the add POST button if user is not logged in 

@@ -1,3 +1,10 @@
+<h5>GET Array:</h5>
+<?php
+echo '<pre>';
+print_r($_GET) ;
+echo  '</pre>';
+?>
+
 <div>
 
 

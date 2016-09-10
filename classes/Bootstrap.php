@@ -35,14 +35,16 @@ class Bootstrap{
 	CREATE CONTROLLER
 ====================================================*/
 	public function createController() {
-
+		// checks if the class has been defined
 		if(class_exists(  $this->controller) ){
+			// return the parent classes of the controller
 			$parents = class_parents($this->controller);
 
 			// Check if this class extends the Base Controller
 			if(in_array("Controller", $parents) ) {
 				if(method_exists($this->controller, $this->action)) {			
-					// this creates and returns a new controller			
+					// this creates and returns a new controller	
+					//     new            home  (index, $urlvalues)		
 				    return new $this->controller($this->action, $this->urlvalues);
 
 				} 

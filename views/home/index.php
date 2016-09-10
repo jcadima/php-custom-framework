@@ -1,7 +1,7 @@
 
 <div class="text-center">
 
-	<h1>Custom PHP Framework Home Page</h1>
+	<h1>PHP Framework Home Page</h1>
 
 	<p class="lead">Home Page</p>
 
@@ -23,3 +23,6 @@ echo $viewData['texttitle']   . '<br>' ;
 
 <br><br>
 <a class="btn btn-primary text-center" href="<?php echo ROOT_PATH;?>posts">View All Posts</a>
+
+
+

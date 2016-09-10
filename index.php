@@ -11,9 +11,7 @@ $get = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 
 $bootstrap = new Bootstrap($get);
 
-
 $controller = $bootstrap->createController(); 
-
 
 if($controller){
 

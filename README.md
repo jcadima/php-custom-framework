@@ -1,15 +1,21 @@
-# PHP MICROFRAMEWORK
+# CUSTOM PHP FRAMEWORK
 
 
-This is a PHP micro framework for web development, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments.
-A simple blog and user registration is integrated into this custom framework.
+This is a custom PHP framework for personal web applications, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments.
+A simple blog and user registration is integrated into this php custom framework.
 
 # REQUIREMENTS
-- PHP 5.4.x > with PDO
+- PHP 5.3.x > with PDO
 
 
 ### Installation
-You can get this microframework up and running by simply copying the directory structure.
+This custom PHP framework makes use of namespaces and it has a directory structure similar to Laravel where a "public" directory contains the front controller. This directory structure sometimes makes it difficult for shared hosting environments where the virtual hosts file is not available to edit, a modified version of this framework is available to download here:
+[php-framework-(shared hosting)](http://juancadima.com/projects/php-framework-shared-hosting.zip)
+Simply copy the directory structure into a folder to get this framework running
+
+Download the regular version:
+[php-framework](http://juancadima.com/projects/php-framework.zip)
+
 The only requirements are to have a working Apache web server with PHP.
 #### Note: 
 If using IIS the controler/action will not work since this framework uses .htaccess for the URL rewriting
@@ -21,29 +27,31 @@ http://domain/controller/action/id
 ```
 action and id are optional, if controller is not specified it will use a specified default controller.
 - All Controllers must extend the Base Controller.
+
 - If you want any view to be shown without using a main template, pass a boolean false as the second argument in the 
 ```php
-$this->view->output() 
+View::renderTemplate($data, "./App/Views/blog/index.php", false) ;
 ```
-call of your controller methods (where the first argument is the data being send to the view).
+To use the main template pass the second argument as true
+```php
+View::renderTemplate($data, "./App/Views/blog/index.php", true) ;
+```
+
 - Directories under /views share the same name of the controller class, for example a controller Home has a view called /views/home , and inside the folder name you would have and index and/or another file that would describe the action
-- If you want to call only a specific part of the view without using the main template , you can do so by just passing a boolean of false as the second argument 
+
 - You are able to pass an array with as many values as you like , and can also return objects from the model. i.e: 
 ```php
-$data = [] ;
-$postid = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 $viewmodel = new Post_Model();
-$data = $viewmodel->getPostById($postid['id'] );
-$data['title'] = 'My website';
-// pass this $data array to the view
-$this->view->output($data, true ) ;
+$data['pagetitle'] = 'Add a New Post';
+$data['add'] = $viewmodel->add() ;
+View::renderTemplate($data, "../App/Views/blog/add.php", true) ;
 ```
 
 
 ### Tutorial & Demo
 For a more detailed description visit my
 - [Website](http://juancadima.com/creating-custom-php-mvc-framework-part-1/)
-- [Live Demo](http://juancadima.com/projects/phpframework/) 
+- [Live Demo](http://phpframework.juancadima.com/) 
 
 
 ### Database Tables Description

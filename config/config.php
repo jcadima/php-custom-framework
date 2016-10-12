@@ -8,4 +8,6 @@ define("DB_NAME", "phpframework");
 
 // Define URL
 define("ROOT_PATH", "/");
-define("ROOT_URL", "http://phpframework.dev/");
+
+// set URL  ex:  http://example.com/
+define("ROOT_URL", "http://phpframework.dev/"); // 

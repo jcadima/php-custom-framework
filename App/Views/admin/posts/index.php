@@ -5,16 +5,16 @@
 <hr>
 <h5>Print values from $data array:</h5>
 <?php
-echo '$viewData[' . "pagetitle " .'] => ' . $viewData['pagetitle']  . '<br>' ;
+echo 'pagetitle => ' . $pagetitle  . '<br>' ;
 // echo  '$viewData[' . "text" . '] => ' . $viewData['text']   . '<br>' ;
 ?>
 <hr>
    
 <h3>Posts</h3>
 
-<?php foreach($viewData['posts'] as $item) : ?>
+<?php foreach($posts as $post) : ?>
 	<ul class="well">
-		<li><?php echo $item['title']; ?></li>
+		<li><?php echo $post['title']; ?></li>
 	</ul>
 <?php endforeach; ?>
 

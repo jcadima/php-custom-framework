@@ -4,8 +4,7 @@
 <hr>
 <h5>Print values from $data array:</h5>
 <?php
-echo '$viewData[' . "pagetitle " .'] => ' . $viewData['pagetitle']  . '<br>' ;
-// echo  '$viewData[' . "text" . '] => ' . $viewData['text']   . '<br>' ;
+echo 'pagetitle => ' . $pagetitle  . '<br>' ;
 ?>
 <hr>
 

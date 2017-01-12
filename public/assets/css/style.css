@@ -7,6 +7,33 @@
 }
 
 .footer-cont {
-    background: #e7e7e7;
+    background: #1a2027;
     padding: 25px 0 10px 0;
+}
+
+.navbar-default {
+    background-color: #2e3244;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+
+
+.navbar-default a {
+    color: #fff !important;
+}
+
+.navbar-nav>li>a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    line-height: 20px;
+    padding-right: 35px;
+    font-size: 18px;
+}
+
+.footer-cont a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
 }

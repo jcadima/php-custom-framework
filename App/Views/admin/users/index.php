@@ -6,14 +6,13 @@
 <hr>
 <h5>Print values from $data array:</h5>
 <?php
-echo '$viewData[' . "pagetitle " .'] => ' . $viewData['pagetitle']  . '<br>' ;
-// echo  '$viewData[' . "text" . '] => ' . $viewData['text']   . '<br>' ;
+echo 'pagetitle => ' . $pagetitle  . '<br>' ;
 ?>
 <hr>
 
 <h3>All Users</h3>
        
-<?php foreach($viewData['users'] as $user) : ?>
+<?php foreach($users as $user) : ?>
 	<ul class="well">
 		<li><?php echo $user['name']; ?></li>
 	</ul>

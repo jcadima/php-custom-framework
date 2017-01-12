@@ -8,7 +8,7 @@
 	      <?php Core\Messages::display(); ?>
 	     	<?php 
 
-	      require($view); 
+	      require($viewPath); 
 	      ?>
 
     </div><!-- /.container -->

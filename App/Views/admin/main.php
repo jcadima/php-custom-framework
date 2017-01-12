@@ -18,9 +18,9 @@
 
 <h3>Posts</h3>
 	       
-	<?php foreach($viewData['posts'] as $item) : ?>
+	<?php foreach($posts as $post) : ?>
 		<ul class="well">
-			<li><?php echo $item['title']; ?></li>
+			<li><?php echo $post['title']; ?></li>
 		</ul>
 	<?php endforeach; ?>
 

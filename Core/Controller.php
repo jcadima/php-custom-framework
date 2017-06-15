@@ -1,17 +1,13 @@
 <?php
 namespace Core;
-
-
 abstract class Controller{
 	protected $urlvalues;
 	protected $action;
 	protected $view;
-
 	public function __construct($action, $urlvalues){
 		$this->action = $action;  // index
 		$this->urlvalues = $urlvalues;
 	}
-
 /*====================================================
 	EXECUTE ACTION
 ====================================================*/
@@ -38,6 +34,4 @@ abstract class Controller{
 		// remember the Home Controller calls itself , thats why we have $this->{$this->action}() 
 		return $this->{$this->action}();
 	}
-
 }
-

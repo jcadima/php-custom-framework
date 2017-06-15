@@ -9,7 +9,7 @@ class Blog extends \Core\Controller{
 /*====================================================
 	INDEX
 ====================================================*/
-	protected function index() {
+	public function index() {
 		$viewmodel = new Post_Model();
 
 		$data['pagetitle'] = 'Posts page title';
@@ -23,7 +23,7 @@ class Blog extends \Core\Controller{
 /*====================================================
 	ADD
 ====================================================*/
-	protected function add() {
+	public function add() {
 		// redirect to  /posts if its not logged in
 		if(!isset($_SESSION['is_logged_in'])){
 			header('Location: ' . ROOT_URL . 'blog');
@@ -46,8 +46,8 @@ class Blog extends \Core\Controller{
 		$viewmodel = new Post_Model();
 		$data['postid'] = $viewmodel->getPostById($postid['id'] );
 		$data['pagetitle'] = $data['postid']['title'] ;
-
 		View::renderTemplate($data, "../App/Views/blog/view.php", true) ;
 	}
+
 
 }

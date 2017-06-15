@@ -14,7 +14,7 @@ public function __construct($action, $urlvalues)
 public function executeAction()
 */
 
-	protected function main() {
+	public function main() {
 		$data['pagetitle'] = 'Main Dashboard';
 		$viewmodel = new Post_Model();
 		$data['posts'] = $viewmodel->Index() ;	// get list of posts

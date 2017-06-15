@@ -15,6 +15,7 @@ echo 'pagetitle => ' . $pagetitle  . '<br>' ;
 <?php foreach($posts as $post) : ?>
 	<ul class="well">
 		<li><?php echo $post['title']; ?></li>
+		<a class="btn btn-default" href="<?php echo ROOT_PATH;  ?>blog/view/<?php echo $post['id']; ?>">Read More</a>
 	</ul>
 <?php endforeach; ?>
 

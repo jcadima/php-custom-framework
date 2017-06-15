@@ -8,7 +8,7 @@ use App\Models\User_Model;
 
 class Users extends \Core\Controller{
 
-	protected function index() {
+	public function index() {
 
 		$data['pagetitle'] = 'Dashboard - Users';
 		$viewmodel = new User_Model();

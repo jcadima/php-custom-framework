@@ -6,7 +6,7 @@ use \Core\View;
 
 class Home extends \Core\Controller{
 
-	protected function index() {
+	public function index() {
 		// $viewmodel = new Home_Model();
 		// true = full view which calls main.php , and this main.php includes index.php
 		// false = only index.php will be rendered

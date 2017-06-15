@@ -13,7 +13,7 @@ class Authenticate extends \Core\Controller{
 /*====================================================
 	LOGIN
 ====================================================*/
-	protected function login() {
+	public function login() {
 		$viewmodel = new User_Model();
 		
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -59,7 +59,7 @@ class Authenticate extends \Core\Controller{
 /*====================================================
 	LOGOUT
 ====================================================*/
-	protected function logout() {
+	public function logout() {
 		unset($_SESSION['is_logged_in']);
 		unset($_SESSION['user_data']);
 		session_destroy();
@@ -71,7 +71,7 @@ class Authenticate extends \Core\Controller{
 /*====================================================
 	REGISTER
 ====================================================*/
-	protected function register() {
+	public function register() {
 		$viewmodel = new User_Model();
 		$data['loginIndex'] =  $viewmodel->register() ;
 		$data['pagetitle'] = "Register Page Title" ;

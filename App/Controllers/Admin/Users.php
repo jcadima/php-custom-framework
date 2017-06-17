@@ -5,7 +5,6 @@ namespace App\Controllers\Admin;
 use \Core\View;
 use App\Models\User_Model;
 
-
 class Users extends \Core\Controller{
 
 	public function index() {
@@ -14,7 +13,7 @@ class Users extends \Core\Controller{
 		$viewmodel = new User_Model();
 		$data['users'] = $viewmodel->Index() ;	// get list of posts
 
-		View::renderTemplate($data, "../App/Views/admin/users/index.php", true) ;
+		View::renderTemplate($data, "../App/Views/admin/users/index.php") ;
 	}
  
 }

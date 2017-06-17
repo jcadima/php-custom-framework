@@ -39,7 +39,6 @@ class Authenticate extends \Core\Controller{
 				Messages::setMsg('You can now add posts', 'success');
 				// Redirect to Posts
 				header('Location: '.ROOT_URL . 'dashboard/main');
-				//View::renderTemplate($data, "../App/Views/admin/dashboard.php", true) ;
 			} 
 			else {
 				Messages::setMsg('Incorrect Login', 'error');
@@ -49,11 +48,8 @@ class Authenticate extends \Core\Controller{
 		}
 		else {
 			// login index ;
-			View::renderTemplate($data, "../App/Views/admin/login.php", true) ;
+			View::renderTemplate($data, "../App/Views/admin/login.php") ;
 		}
-
-
-
 	}
 
 /*====================================================
@@ -75,8 +71,6 @@ class Authenticate extends \Core\Controller{
 		$viewmodel = new User_Model();
 		$data['loginIndex'] =  $viewmodel->register() ;
 		$data['pagetitle'] = "Register Page Title" ;
-		View::renderTemplate($data, "../App/Views/admin/register.php", true) ;
+		View::renderTemplate($data, "../App/Views/admin/register.php") ;
 	}
-
- 
 }

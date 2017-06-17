@@ -16,7 +16,7 @@ class Blog extends \Core\Controller{
 		$data['text'] = 'Some text For Posts Index';		
 		$data['posts'] = $viewmodel->Index() ;	
 	    
-	    View::renderTemplate($data, "../App/Views/blog/index.php", true) ;
+	    View::renderTemplate($data, "../App/Views/blog/index.php") ;
 	}
    
 
@@ -33,7 +33,7 @@ class Blog extends \Core\Controller{
 		$data['pagetitle'] = 'Add a New Post';
 		$data['add'] = $viewmodel->add() ;
 
-		View::renderTemplate($data, "../App/Views/blog/add.php", true) ;
+		View::renderTemplate($data, "../App/Views/blog/add.php") ;
 	}
 
 
@@ -46,7 +46,7 @@ class Blog extends \Core\Controller{
 		$viewmodel = new Post_Model();
 		$data['postid'] = $viewmodel->getPostById($postid['id'] );
 		$data['pagetitle'] = $data['postid']['title'] ;
-		View::renderTemplate($data, "../App/Views/blog/view.php", true) ;
+		View::renderTemplate($data, "../App/Views/blog/view.php") ;
 	}
 
 

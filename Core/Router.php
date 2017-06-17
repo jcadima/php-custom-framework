@@ -17,8 +17,8 @@ class Router{
 			case "authenticate":
 			case "users":
 			case "posts":
-						$this->namespace = 'App\Controllers\Admin\\';
-						$this->controller = $this->urlvalues['controller'];
+					$this->namespace = 'App\Controllers\Admin\\';
+					$this->controller = $this->urlvalues['controller'];
 				break;
 
 			default:

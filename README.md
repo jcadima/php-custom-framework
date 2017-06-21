@@ -8,7 +8,7 @@ A simple blog and user registration is integrated into this php custom framework
 
 
 ### Installation
-This custom PHP framework makes use of namespaces and it has a directory structure similar to Laravel where a "public" directory contains the front controller. This directory structure sometimes makes it difficult for shared hosting environments where the virtual hosts file is not available to edit, a modified version of this framework is available to download here:
+This custom PHP framework makes use of namespaces the "public" directory contains the front controller.
 
 Download:
 [php-framework](http://juancadima.com/downloads/phpframework/phpframework.zip)

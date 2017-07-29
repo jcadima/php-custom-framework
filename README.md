@@ -11,8 +11,12 @@ A simple blog and user registration is integrated into this php custom framework
 ### Installation
 This custom PHP framework makes use of namespaces the "public" directory contains the front controller.
 
-Download:
-[php-frameworkv2](http://juancadima.com/downloads/phpframeworkv2/phpframeworkv2.zip)
+Download Version 1:
+[php-framework v1](http://juancadima.com/projects/phpframework-shared-hosting.zip)
+
+
+Download Version 2:
+[php-framework v2](http://juancadima.com/downloads/phpframeworkv2/phpframeworkv2.zip)
 
 The only requirements are to have a working Apache web server with PHP.
 #### Note: 

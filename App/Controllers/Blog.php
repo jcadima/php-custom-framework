@@ -14,7 +14,7 @@ class Blog{
 
 		$data['pagetitle'] = 'Posts page title';
 		$data['text'] = 'Some text For Posts Index';		
-		$data['posts'] = $viewmodel->get_posts() ;	
+		$data['posts'] = $viewmodel->Index() ;	
 	    
 	    View::renderTemplate($data, "../App/Views/blog/index.php") ;
 	}
@@ -44,12 +44,8 @@ class Blog{
 		$viewmodel = new Post_Model();
 		$data['postid'] = $viewmodel->getPostById($id );
 		$data['pagetitle'] = $data['postid']['title'] ;
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b36f592e880f1e61cd21d360a6dbac592be844f
 		View::renderTemplate($data, "../App/Views/blog/view.php") ;
 	}
-
 
 }

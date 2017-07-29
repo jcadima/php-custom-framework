@@ -47,10 +47,7 @@ class Authenticate {
 			// login index ;
 			View::renderTemplate($data, "../App/Views/admin/login.php") ;
 		}
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b36f592e880f1e61cd21d360a6dbac592be844f
 	}
 
 /*====================================================
@@ -74,4 +71,6 @@ class Authenticate {
 		$data['pagetitle'] = "Register Page Title" ;
 		View::renderTemplate($data, "../App/Views/admin/register.php") ;
 	}
+
+ 
 }

@@ -4,7 +4,7 @@ namespace App\Controllers;
 use \Core\View;
 use App\Models\Post_Model;
 
-class Blog{
+class Blog extends \Core\Controller{
 
 /*====================================================
 	INDEX
@@ -14,7 +14,7 @@ class Blog{
 
 		$data['pagetitle'] = 'Posts page title';
 		$data['text'] = 'Some text For Posts Index';		
-		$data['posts'] = $viewmodel->Index() ;	
+		$data['posts'] = $viewmodel->get_posts() ;	
 	    
 	    View::renderTemplate($data, "../App/Views/blog/index.php") ;
 	}
@@ -40,12 +40,14 @@ class Blog{
 /*====================================================
 	SHOW POST BY ID
 ====================================================*/
-	public function view ( $id ) {
+	protected function view () {
+		$data = [] ;
+		$postid = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 		$viewmodel = new Post_Model();
-		$data['postid'] = $viewmodel->getPostById($id );
+		$data['postid'] = $viewmodel->getPostById($postid['id'] );
 		$data['pagetitle'] = $data['postid']['title'] ;
-
 		View::renderTemplate($data, "../App/Views/blog/view.php") ;
 	}
+
 
 }

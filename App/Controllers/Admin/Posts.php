@@ -10,7 +10,7 @@ class Posts{
 	public function index() {
 		$data['pagetitle'] = 'Dashboard - Posts';
 		$viewmodel = new Post_Model();
-		$data['posts'] = $viewmodel->Index() ;	// get list of posts
+		$data['posts'] = $viewmodel->get_posts() ;	// get list of posts
 
 		View::renderTemplate($data, "../App/Views/admin/posts/index.php") ;
 		

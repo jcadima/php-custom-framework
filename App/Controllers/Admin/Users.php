@@ -10,7 +10,7 @@ class Users {
 
 		$data['pagetitle'] = 'Dashboard - Users';
 		$viewmodel = new User_Model();
-		$data['users'] = $viewmodel->Index() ;	// get list of posts
+		$data['users'] = $viewmodel->get_users() ;	// get list of posts
 
 		View::renderTemplate($data, "../App/Views/admin/users/index.php") ;
 	}

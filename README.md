@@ -1,4 +1,4 @@
-# ARMADILLO CUSTOM PHP FRAMEWORK V2.0
+# ARMADILLO CUSTOM PHP FRAMEWORK V1.0
 
 This is a custom PHP framework for personal web applications, it aims to be simple, lightweight and flexible, the code is for learning purposes and is not intended to be used "as is" in production environments.
 A simple blog and user registration is integrated into this php custom framework.
@@ -11,12 +11,11 @@ A simple blog and user registration is integrated into this php custom framework
 This custom PHP framework makes use of namespaces the "public" directory contains the front controller.
 
 
-Download Version 1:
-[php-framework v1](http://juancadima.com/projects/phpframework-shared-hosting.zip)
+Download Shared Hosting:
+[php-framework v1](http://juancadima.com/downloads/phpframework_shared_hosting/phpframework-shared-hosting.zip)
 
- 
-Download Version 2:
-[php-framework v2](http://juancadima.com/downloads/phpframeworkv2/phpframeworkv2.zip)
+Download:
+[php-framework](http://juancadima.com/downloads/phpframework/phpframework.zip)
 
 
 The only requirements are to have a working Apache web server with PHP.

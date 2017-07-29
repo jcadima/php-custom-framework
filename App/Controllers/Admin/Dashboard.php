@@ -10,7 +10,7 @@ class Dashboard {
 	public function main() {
 		$data['pagetitle'] = 'Main Dashboard';
 		$viewmodel = new Post_Model();
-		$data['posts'] = $viewmodel->Index() ;	// get list of posts
+		$data['posts'] = $viewmodel->get_posts() ;	// get list of posts
 		View::renderTemplate($data, "../App/Views/admin/main.php") ;
 
 	}

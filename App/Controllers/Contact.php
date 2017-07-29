@@ -7,6 +7,10 @@ use \Core\View;
 class Contact{	
 
 	public function index() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4b36f592e880f1e61cd21d360a6dbac592be844f
 		$data['pagetitle'] = 'Contact page title';
 		$data['text'] = 'Some text';
 		

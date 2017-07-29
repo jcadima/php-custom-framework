@@ -2,83 +2,69 @@
 namespace Core;
 
 class Router{
-	private $controller;
-	private $action;
-	private $urlvalues;
+	private $url_controller ;
+	private $url_action = null;
 	private $namespace;
+
+	protected $params = [];
 
 /*====================================================
 	CONSTRUCTOR - initialize  controller, action 
 ====================================================*/
-	public function __construct($urlvalues){
-		$this->urlvalues = $urlvalues;
-		$this->controller = $this->urlvalues['controller'] ;
+	public function __construct(){
 
-		switch ($this->controller) {
-			case "" :  
-					$this->namespace = 'App\Controllers\\';
-					$this->controller = 'home';
-				break;
+	 	if (isset($_GET['qs'])) {
+			$url = filter_var( $_GET['qs'], FILTER_SANITIZE_URL);
 
-			case "dashboard" :
-			case "authenticate":
-			case "users":
-			case "posts":
-					$this->namespace = 'App\Controllers\Admin\\';
-					$this->controller = $this->urlvalues['controller'];
-				break;
+			$url = explode('/', $url);
 
-			default:
-					$this->namespace = 'App\Controllers\\';
-					$this->controller = $this->urlvalues['controller'];
-				break;
-
+			$this->url_controller =  isset($url[0]) ? $url[0] : null;	
+			$this->url_action     =  isset($url[1]) ? $url[1] : 'index';
+			$this->params        = array_slice($url,2)  ;
 		}
-		// defaults to 'index' action if not specified
-		if($this->urlvalues['action'] == "") {
-			$this->action = 'index';
-		} 
-		else {
-			$this->action = $this->urlvalues['action'];
-		}
+
 	} // END constructor
 
+
+	protected function getNamespace()  {
+
+		$adminNS = array('Dashboard','Authenticate','Users','Posts');
+		$namespace = (in_array( ucfirst($this->url_controller) , $adminNS ) )  ? 'App\Controllers\\Admin\\' : 'App\Controllers\\'  ;
+		return $namespace;
+	}
 
 /*====================================================
 	CREATE CONTROLLER
 ====================================================*/
-	public function createController() {
-            $controller = $this->controller;
-			$controller = $this->namespace . $this->controller;
+	public function dispatch() {
 
-			// echo "NAMESPACE: $this->namespace<br>";
-			// echo "CONTROLLER: $this->controller<br>" ;
-   			// echo "PATH: " . $controller . "<br>";
-		if(class_exists( $controller  )  ){
-			// return the parent classes of the controller
-			$parents = class_parents($controller);
+		if ( !$this->url_controller  )  {
+			$home = new \App\Controllers\Home() ;
+			$home->index() ;
+		}
 
-			// Check if this class extends the Base Controller
-			if(in_array("Core\Controller", $parents) ) {
-				if(method_exists($controller, $this->action)) {			
-					// this creates and returns a new controller	
-					//     new            home  (index, $urlvalues)		
-				    return new $controller($this->action, $this->urlvalues);
+		elseif( class_exists( $this->getNamespace() . ucfirst( $this->url_controller) )  ) {
+			$this->url_controller = $this->getNamespace() . ucfirst( $this->url_controller) ;
+			$objcontroller = new $this->url_controller();  // NEW CONTROLLER
 
+				if(method_exists( $this->url_controller , $this->url_action)) {
+
+					if ( !empty($this->params && $this->params != "") ) {
+			 			call_user_func_array( array( $objcontroller, $this->url_action),$this->params ) ;
+					}
+
+					else {
+						$objcontroller->{$this->url_action }() ;
+					}
 				} 
 				else {
-					echo "<h1>Method $this->action does not exist</h1>";
+					echo "<h1>Method $this->url_action does not exist</h1>";
 					return;
 				}
-			} // END in_array
-			else {
-				echo '<h1>Router controller not found</h1>';
-				return;
-			}
-		} // END class_exists
+		} 
 
 		else {
-			echo "<h1>Controller $controller does not exist</h1>";
+			echo "<h1>Controller $this->url_controller does not exist</h1>";
 			return;
 		}
 	} // END createController

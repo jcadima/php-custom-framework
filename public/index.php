@@ -1,23 +1,19 @@
 <?php
 
+/**
+ * Armadillo  - a simple php microframework
+ *
+ * @package armadillo_mvc
+ * @author JC
+ * @link http://phpframework.juancadima.com/
+ * @link https://github.com/jcadima/php-custom-framework-v2
+ * @license http://opensource.org/licenses/MIT MIT License
+ */
+
 require '../init/init.php' ; // session, config/autoloading
 
-// Testing
-// echo '<pre>';
-// print_r($_GET) ;
-// echo  '</pre>';
+$router = new Core\Router();
+  
+$controller = $router->dispatch();
 
-error_reporting(E_ALL);
 
-// get  url values
-$get = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
-
-$router = new Core\Router($get);
-
-// $controller = new  home  (index, $urlvalues)	
-$controller = $router->createController(); 
-
-if($controller){
-	// returns View for the specified controller and method
-	$controller->executeAction();
-}

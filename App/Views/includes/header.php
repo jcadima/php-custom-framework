@@ -22,7 +22,7 @@
           <ul class="nav navbar-nav">
             <li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
             <li><a href="<?php echo ROOT_URL; ?>blog">Blog</a></li>
-            <li><a href="<?php echo ROOT_URL; ?>contactus">Contactus</a></li>
+            <li><a href="<?php echo ROOT_URL; ?>contact">Contactus</a></li>
             <?php if(isset($_SESSION['is_logged_in'])) : ?>
             <li><a href="<?php echo ROOT_URL; ?>posts">Admin Posts</a></li>
             <li><a href="<?php echo ROOT_URL; ?>users">Admin Users</a></li>

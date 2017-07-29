@@ -1,9 +1,9 @@
 <?php
 namespace App\Models;
 
-class User_Model extends \Core\Model{
+class User_Model extends \Core\Model {
 
-	public function Index() {
+	public function get_users() {
 		$this->query('SELECT * FROM users');
 		
 		$set = $this->resultSet();
@@ -11,9 +11,8 @@ class User_Model extends \Core\Model{
 		if($set) {
 			return $set;
 		} 
-		else {
-			return false;
-		}
+		return false; 
+
 	}		
 
 
@@ -55,23 +54,21 @@ class User_Model extends \Core\Model{
 	public function login($email , $password) {
 		// Sanitize POST
 
-			$password = md5($password );
+		$password = md5($password );
 
-			// Compare Login
-			$this->query('SELECT * FROM users 
-				WHERE email = :email 
-				AND password = :password');
-			$this->bind(':email', $email);
-			$this->bind(':password', $password);
-			
-			$row = $this->single();
+		// Compare Login
+		$this->query('SELECT * FROM users 
+			WHERE email = :email 
+			AND password = :password');
+		$this->bind(':email', $email);
+		$this->bind(':password', $password);
+		
+		$row = $this->single();
 
-			if($row) {
-				return $row;
-			} 
-			else {
-				return false;
-			}
+		if($row) {
+			return $row;
+		} 
+		return false;
 
 	}
 

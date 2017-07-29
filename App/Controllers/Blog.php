@@ -4,26 +4,26 @@ namespace App\Controllers;
 use \Core\View;
 use App\Models\Post_Model;
 
-class Blog extends \Core\Controller{
+class Blog{
 
 /*====================================================
 	INDEX
 ====================================================*/
-	protected function index() {
+	public function index() {
 		$viewmodel = new Post_Model();
 
 		$data['pagetitle'] = 'Posts page title';
 		$data['text'] = 'Some text For Posts Index';		
-		$data['posts'] = $viewmodel->Index() ;	
+		$data['posts'] = $viewmodel->get_posts() ;	
 	    
-	    View::renderTemplate($data, "../App/Views/blog/index.php", true) ;
+	    View::renderTemplate($data, "../App/Views/blog/index.php") ;
 	}
    
 
 /*====================================================
 	ADD
 ====================================================*/
-	protected function add() {
+	public function add() {
 		// redirect to  /posts if its not logged in
 		if(!isset($_SESSION['is_logged_in'])){
 			header('Location: ' . ROOT_URL . 'blog');
@@ -33,21 +33,19 @@ class Blog extends \Core\Controller{
 		$data['pagetitle'] = 'Add a New Post';
 		$data['add'] = $viewmodel->add() ;
 
-		View::renderTemplate($data, "../App/Views/blog/add.php", true) ;
+		View::renderTemplate($data, "../App/Views/blog/add.php") ;
 	}
 
 
 /*====================================================
 	SHOW POST BY ID
 ====================================================*/
-	protected function view () {
-		$data = [] ;
-		$postid = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+	public function view ( $id ) {
 		$viewmodel = new Post_Model();
-		$data['postid'] = $viewmodel->getPostById($postid['id'] );
+		$data['postid'] = $viewmodel->getPostById($id );
 		$data['pagetitle'] = $data['postid']['title'] ;
 
-		View::renderTemplate($data, "../App/Views/blog/view.php", true) ;
+		View::renderTemplate($data, "../App/Views/blog/view.php") ;
 	}
 
 }

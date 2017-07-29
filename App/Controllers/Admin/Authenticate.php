@@ -6,21 +6,18 @@ use \Core\View;
 use \Core\Messages;
 use App\Models\User_Model;
 
-
-class Authenticate extends \Core\Controller{
-
+class Authenticate {
 
 /*====================================================
 	LOGIN
 ====================================================*/
-	protected function login() {
+	public function login() {
 		$viewmodel = new User_Model();
 		
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 		$password = md5($post['password'] );
 
-		//$data['loginIndex'] =  $viewmodel->index() ;
 		$data['pagetitle'] = "Login Page Title" ;
 
 		if($post['submit']) {
@@ -28,7 +25,7 @@ class Authenticate extends \Core\Controller{
 			$password = $post['password'] ;
 			// Compare Login
 			$user_id = $viewmodel->login($email, $password) ;
-			// print_r($user_id) ;
+			
 			if($user_id) {
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user_data'] = array(
@@ -39,7 +36,6 @@ class Authenticate extends \Core\Controller{
 				Messages::setMsg('You can now add posts', 'success');
 				// Redirect to Posts
 				header('Location: '.ROOT_URL . 'dashboard/main');
-				//View::renderTemplate($data, "../App/Views/admin/dashboard.php", true) ;
 			} 
 			else {
 				Messages::setMsg('Incorrect Login', 'error');
@@ -49,17 +45,15 @@ class Authenticate extends \Core\Controller{
 		}
 		else {
 			// login index ;
-			View::renderTemplate($data, "../App/Views/admin/login.php", true) ;
+			View::renderTemplate($data, "../App/Views/admin/login.php") ;
 		}
-
-
 
 	}
 
 /*====================================================
 	LOGOUT
 ====================================================*/
-	protected function logout() {
+	public function logout() {
 		unset($_SESSION['is_logged_in']);
 		unset($_SESSION['user_data']);
 		session_destroy();
@@ -71,11 +65,11 @@ class Authenticate extends \Core\Controller{
 /*====================================================
 	REGISTER
 ====================================================*/
-	protected function register() {
+	public function register() {
 		$viewmodel = new User_Model();
 		$data['loginIndex'] =  $viewmodel->register() ;
 		$data['pagetitle'] = "Register Page Title" ;
-		View::renderTemplate($data, "../App/Views/admin/register.php", true) ;
+		View::renderTemplate($data, "../App/Views/admin/register.php") ;
 	}
 
  

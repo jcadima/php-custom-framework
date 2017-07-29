@@ -9,14 +9,10 @@ A simple blog and user registration is integrated into this php custom framework
 
 
 ### Installation
-This custom PHP framework makes use of namespaces and it has a directory structure similar to Laravel where a "public" directory contains the front controller. This directory structure sometimes makes it difficult for shared hosting environments where the virtual hosts file is not available to edit, a modified version of this framework is available to download here:
+This custom PHP framework makes use of namespaces the "public" directory contains the front controller.
 
-[php-framework-(shared hosting)](http://juancadima.com/projects/php-framework-shared-hosting.zip)
-
-Simply copy the directory structure into a folder to get this framework running
-
-Download the regular version:
-[php-framework](http://juancadima.com/projects/php-framework.zip)
+Download:
+[php-frameworkv2](http://juancadima.com/downloads/phpframeworkv2/phpframeworkv2.zip)
 
 The only requirements are to have a working Apache web server with PHP.
 #### Note: 
@@ -25,18 +21,13 @@ If using IIS the controler/action will not work since this framework uses .htacc
 # Project Details & Structure
 - The main URL structure should be in this format: 
 ```bash
-http://domain/controller/action/id 
+http://domain/controller/action/{params}
 ```
-action and id are optional, if controller is not specified it will use a specified default controller.
-- All Controllers must extend the Base Controller.
+action and params are optional, if controller is not specified it will use a specified default controller.
 
-- If you want any view to be shown without using a main template, pass a boolean false as the second argument in the 
+To pass a view
 ```php
-View::renderTemplate($data, "./App/Views/blog/index.php", false) ;
-```
-To use the main template pass the second argument as true
-```php
-View::renderTemplate($data, "./App/Views/blog/index.php", true) ;
+View::renderTemplate($data, "./App/Views/blog/index.php") ;
 ```
 
 - Directories under /views share the same name of the controller class, for example a controller Home has a view called /views/home , and inside the folder name you would have and index and/or another file that would describe the action
@@ -46,14 +37,8 @@ View::renderTemplate($data, "./App/Views/blog/index.php", true) ;
 $viewmodel = new Post_Model();
 $data['pagetitle'] = 'Add a New Post';
 $data['add'] = $viewmodel->add() ;
-View::renderTemplate($data, "../App/Views/blog/add.php", true) ;
+View::renderTemplate($data, "../App/Views/blog/add.php") ;
 ```
-
-
-### Tutorial & Demo
-For a more detailed description visit my
-- [Website](http://juancadima.com/creating-custom-php-mvc-framework-part-1/)
-- [Live Demo](http://phpframework.juancadima.com/) 
 
 
 ### Database Tables Description

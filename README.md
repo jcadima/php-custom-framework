@@ -17,8 +17,9 @@ Download Shared Hosting:
 Download:
 [php-framework](http://juancadima.com/downloads/phpframework/phpframework.zip)
 
-Latest (Version 2)
-[php-framework v2](https://github.com/jcadima/php-custom-framework-v2/archive/master.zip)
+Upgraded Version 2.1:
+[project location](https://github.com/jcadima/php-custom-framework-v2)  <br>
+[download v2](https://github.com/jcadima/php-custom-framework-v2/archive/master.zip)
 
 
 The only requirements are to have a working Apache web server with PHP.
